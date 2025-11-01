@@ -1,0 +1,20 @@
+# Ignore the Python cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore the virtual environment directory
+venv/
+.venv/
+env/
+
+# Ignore the Dockerfile and .dockerignore itself
+Dockerfile
+.dockerignore
+
+# Ignore any local configuration files
+*.local
+
+# Ignore test output
+*.log
+tests/__pycache__/
