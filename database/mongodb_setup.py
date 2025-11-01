@@ -103,9 +103,7 @@ eggs_production_schema = {
                 'description': 'Reference to household'
             },
             'month': {
-                'bsonType': 'int',
-                'minimum': 1,
-                'maximum': 12,
+                'bsonType': 'string',
                 'description': 'Month of production'
             },
             'laying_hens': {

@@ -1,0 +1,29 @@
+@API_URL = http://localhost:8000
+
+# Seed dataset data
+POST {{API_URL}}/dataset/seed/
+Content-Type: application/json
+
+###
+
+# Get Provinces
+GET {{API_URL}}/provinces/
+Content-Type: application/json
+
+###
+
+# Get districts
+GET {{API_URL}}/districts/
+Content-Type: application/json
+
+###
+
+# Retrieve Households Data
+GET {{API_URL}}/households/?skip=0&limit=2
+Content-Type: application/json
+
+###
+
+# Retrieve Egg Production Data
+GET {{API_URL}}/egg-production/?skip=0&limit=2
+Content-Type: application/json

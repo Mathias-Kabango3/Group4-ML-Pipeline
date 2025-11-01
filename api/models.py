@@ -42,7 +42,7 @@ class EggProduction(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     household_id = Column(Integer, ForeignKey("households.id"))
-    month = Column(Integer, nullable=False)
+    month = Column(String, nullable=False)
     laying_hens = Column(Integer, nullable=False)
     eggs_produced = Column(Integer, nullable=False)
     eggs_consumed = Column(Integer, nullable=False)

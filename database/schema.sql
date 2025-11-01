@@ -29,7 +29,7 @@ CREATE TABLE households (
 CREATE TABLE eggs_production (
     id SERIAL PRIMARY KEY,
     household_id INTEGER REFERENCES households(id) ON DELETE CASCADE,
-    month INTEGER CHECK (month BETWEEN 1 AND 12),
+    month VARCHAR(255) NOT NULL,
     laying_hens INTEGER NOT NULL,
     eggs_produced INTEGER NOT NULL,
     eggs_consumed INTEGER NOT NULL,
@@ -53,7 +53,7 @@ CREATE TABLE audit_log (
 -- Create a stored procedure for data validation
 CREATE OR REPLACE PROCEDURE validate_eggs_production_data(
     p_household_id INTEGER,
-    p_month INTEGER,
+    p_month VARCHAR(255),
     p_laying_hens INTEGER,
     p_eggs_produced INTEGER,
     p_eggs_consumed INTEGER,
@@ -68,11 +68,6 @@ DECLARE
 BEGIN
     -- Calculate total eggs distributed
     total_eggs := p_eggs_consumed + p_eggs_sold + p_hatched_eggs + p_eggs_other;
-    
-    -- Validate month
-    IF p_month < 1 OR p_month > 12 THEN
-        RAISE EXCEPTION 'Invalid month value. Month must be between 1 and 12';
-    END IF;
     
     -- Validate laying hens
     IF p_laying_hens < 0 THEN

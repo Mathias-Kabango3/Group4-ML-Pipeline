@@ -46,7 +46,7 @@ class Household(HouseholdBase):
 
 class EggProductionBase(BaseModel):
     household_id: int
-    month: int
+    month: str
     laying_hens: int
     eggs_produced: int
     eggs_consumed: int
@@ -61,5 +61,13 @@ class EggProductionCreate(EggProductionBase):
 class EggProduction(EggProductionBase):
     id: int
     
+    class Config:
+        from_attributes = True
+
+class EggProductionData(EggProduction):
+    household: HouseholdBase
+    district: DistrictBase
+    province: ProvinceBase
+
     class Config:
         from_attributes = True
