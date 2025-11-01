@@ -14,6 +14,7 @@ app = FastAPI(
     description="API for managing Rwandan egg production data including provinces, districts, households, and egg production records.",
     version="1.0.0",
     docs_url="/swagger-ui",
+    openapi_url="/openapi.json",
     redoc_url="/docs"
 )
 
