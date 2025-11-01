@@ -8,7 +8,14 @@ import seed
 
 models.Base.metadata.create_all(bind=engine)
 
-app = FastAPI()
+# app with FastAPI + redocs
+app = FastAPI(
+    title="Rwandan Egg Production API",
+    description="API for managing Rwandan egg production data including provinces, districts, households, and egg production records.",
+    version="1.0.0",
+    docs_url="/swagger-ui",
+    redoc_url="/docs"
+)
 
 # Dependency
 def get_db():
